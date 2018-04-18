@@ -1,16 +1,20 @@
 from flask import Flask, request, abort
+from linebot import (
+        LineBotApi, WebhookHandler
+        )
+from linebot.exceptions import (
+        InvalidSignatureError
+        )
+from linebot.models import (
+        MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+        )
 
 import os
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-    )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-)
+import requests
+import re
+import random
+import configparser
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -19,7 +23,6 @@ line_bot_api = LineBotApi(os.environ.get('ACCESS_TOKEN'))
 # Channel Secret
 handler = WebhookHandler(os.environ.get('SECRET'))
 
-# 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -38,12 +41,33 @@ def callback():
     return 'OK'
 
 
+def ptt_hot():
+    target_url = 'http://disp.cc/b/PttHot'
+    print('Start parsing pttHot....')
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    content = ""
+    for data in soup.select('#list div.row2 div span.listTitle'):
+        title = data.text
+        link = "http://disp.cc/b/" + data.find('a')['href']
+        if data.find('a')['href'] == "796-59l9":
+            break
+        content += '{}\n{}\n\n'.format(title, link)
+    return content
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(
-        event.reply_token,
-        message)
+    line_bot_api.reply_message("Debug:" + event.reply_token,message)
+
+    if event.message.text == "熱門文章":
+        content = ptt_hot()
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+        return 0
 
 import os
 if __name__ == "__main__":
