@@ -60,13 +60,14 @@ def ptt_hot():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    message = TextSendMessage(text="Debug: " + event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
-
     if event.message.text == "熱門文章":
         content = ptt_hot()
-        line_bot_api.push_message(event.source['userId'], TextSendMessage(text=content))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
+    else:
+        message = TextSendMessage(text="Debug: " + event.message.text)
+        line_bot_api.reply_message(event.reply_token, message)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
