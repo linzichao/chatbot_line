@@ -64,7 +64,7 @@ def handle_message(event):
 
     if event.message.text == "熱門文章":
         content = ptt_hot()
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        line_bot_api.push_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
 if __name__ == "__main__":
