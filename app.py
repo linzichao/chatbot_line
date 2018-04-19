@@ -68,6 +68,20 @@ def handle_message(event):
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
 
+    buttons_template = TemplateSendMessage(
+        alt_text='目錄 template',
+        template=ButtonsTemplate(
+            title='選擇服務',
+            text='請選擇',
+            actions=[
+                MessageTemplateAction(
+                    label='Go',
+                    text='Go'
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, buttons_template)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
