@@ -64,9 +64,10 @@ def handle_message(event):
         content = ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
-    else:
+    if event.message.text == "Debug":
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     buttons_template = TemplateSendMessage(
         alt_text='目錄 template',
