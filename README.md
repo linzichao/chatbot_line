@@ -1,6 +1,6 @@
 LIN,ZI-CHAO's Chatbot
 =====================
-for Line's interview pretest
+For Line's interview
 
 
 Language

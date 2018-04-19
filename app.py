@@ -67,20 +67,32 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
         return 0
 
-    buttons_template = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ButtonsTemplate(
-            title='選擇服務',
-            text='請選擇',
-            actions=[
-                MessageTemplateAction(
-                    label='Go',
-                    text='Go'
-                )
-            ]
+    if event.message.text == "了解資超":
+        buttons_template = TemplateSendMessage(
+            alt_text='目錄',
+            template=ButtonsTemplate(
+                title='了解作者(林資超)',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='個性',
+                        text='個性'
+                    ),
+                    MessageTemplateAction(
+                        label='興趣',
+                        text='興趣'
+                    ),
+                    MessageTemplateAction(
+                        label='專長',
+                        text='專長'
+                    ),
+
+                ]
+            )
         )
-    )
-    line_bot_api.reply_message(event.reply_token, buttons_template)
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
