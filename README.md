@@ -26,11 +26,12 @@ Usage
 -----
 When you add Chatbot as a friend, Chatbot will send you a greeting message. Furthermore, you will see a button menu below.
 
-![alt tag](https://i.imgur.com/riwJ8oJ.jpg)
+<img src="https://i.imgur.com/riwJ8oJ.jpg" width="250" height="380"/>
+
 
 If you click the button "了解資超", Chatbot will send you a personal infomation menu about ZI-CHAO.
 
-![alt tag](https://i.imgur.com/8UrgP3M.jpg)
+<img src="https://i.imgur.com/8UrgP3M.jpg" width="250" height="380"/>
 
 
 Reference
