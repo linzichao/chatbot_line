@@ -62,14 +62,16 @@ def handle_message(event):
         content = ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
+
     if event.message.text == "Debug":
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.push_message(event.message.id, message)
         return 0
 
     if event.message.text == "了解資超":
         buttons_template = TemplateSendMessage(
-            alt_text='目錄',
+            alt_text='個人資料 目錄',
             template=ButtonsTemplate(
                 title='了解作者(林資超)',
                 text='請選擇',
@@ -87,6 +89,25 @@ def handle_message(event):
                         label='專長',
                         text='專長'
                     ),
+
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+
+    if event.message.text == "更多功能":
+        buttons_template = TemplateSendMessage(
+            alt_text='更多功能 目錄',
+            template=ButtonsTemplate(
+                title='Chatbot額外功能',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='PTT熱門文章',
+                        text='熱門文章'
+                    )
 
                 ]
             )

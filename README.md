@@ -1,15 +1,26 @@
 LIN,ZI-CHAO's Chatbot
 =====================
-For Line's interview
+for Line's interview
 
 
-Language
+Runtime Environment
 --------
-Python
+* Python 3.6.2
 
 Cloud Platform
 --------------
-Heroku
+* Heroku
+
+Configuration
+-------------
+You have to Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku
+
+```python
+  # Channel Access Token
+  line_bot_api = LineBotApi(os.environ.get('ACCESS_TOKEN'))
+  # Channel Secret
+  handler = WebhookHandler(os.environ.get('SECRET'))
+```
 
 Usage
 -----
