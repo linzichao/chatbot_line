@@ -13,7 +13,7 @@ Cloud Platform
 
 Configuration
 -------------
-You have to Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku
+You have to Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku.
 
 ```python
   # Channel Access Token
@@ -24,6 +24,18 @@ You have to Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku
 
 Usage
 -----
+When you add Chatbot as a friend, Chatbot will send you a greeting message. Furthermore, you will see a button menu below.
+
+![alt tag](https://i.imgur.com/riwJ8oJ.jpg)
+
+If you click the button "了解資超", Chatbot will send you a personal infomation menu about ZI-CHAO.
+
+![alt tag](https://i.imgur.com/8UrgP3M.jpg)
+
+
+Reference
+---------
+* [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
 
 License
 -------
