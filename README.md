@@ -24,3 +24,7 @@ You have to Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku
 
 Usage
 -----
+
+License
+-------
+Licensed under the [MIT License](LICENSE.txt).
