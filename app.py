@@ -58,6 +58,8 @@ def ptt_hot():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+    print(event)
+
     if event.message.text == "熱門文章":
         content = ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
@@ -66,7 +68,6 @@ def handle_message(event):
     if event.message.text == "Debug":
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
-        line_bot_api.push_message(event.message.id, message)
         return 0
 
     if event.message.text == "了解資超":
