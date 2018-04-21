@@ -60,9 +60,6 @@ def handle_message(event):
 
     print(event.source.user_id)
 
-
-
-
     if event.message.text == "熱門文章":
         content = ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
@@ -89,14 +86,13 @@ def handle_message(event):
                         text='個性'
                     ),
                     MessageTemplateAction(
-                        label='興趣',
-                        text='興趣'
-                    ),
-                    MessageTemplateAction(
                         label='專長',
                         text='專長'
                     ),
-
+                    MessageTemplateAction(
+                        label='系上活動參與',
+                        text='系上活動參與'
+                    )
                 ]
             )
         )
@@ -109,7 +105,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='Chatbot額外功能',
                 text='請選擇',
-                thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
+                thumbnail_image_url='https://i.imgur.com/lgPvzHB.png',
                 actions=[
                     MessageTemplateAction(
                         label='PTT熱門文章',
