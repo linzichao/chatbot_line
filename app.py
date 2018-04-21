@@ -68,7 +68,8 @@ def handle_message(event):
     if event.message.text == "Debug":
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
-        line_bot_api.push_message(event.source.userId, message)
+        message2 = TextSendMessage(text="Debug2: " + event.message.text)
+        line_bot_api.push_message(event.source.userId, message2)
         return 0
 
 
