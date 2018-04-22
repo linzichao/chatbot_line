@@ -38,40 +38,103 @@ def callback():
 
     return 'OK'
 
-
+#PTT crawler
 def ptt_hot():
     target_url = 'http://disp.cc/b/PttHot'
-    print('Start parsing pttHot....')
+    #print('Start parsing pttHot....')
     rs = requests.session()
     res = rs.get(target_url, verify=False)
     soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
+    ptt_hot = ""
+    counter = 0
+
     for data in soup.select('#list div.row2 div span.listTitle'):
-        title = data.text
-        link = "http://disp.cc/b/" + data.find('a')['href']
-        if data.find('a')['href'] == "796-59l9":
-            break
-        content += '{}\n{}\n\n'.format(title, link)
-    return content
+        match = re.search(r'.*href="(.*?)"',str(data))
+        if match:
+            counter += 1
+            title = data.text
+            link = "http://disp.cc/b/" + match.group(1)
+            ptt_hot += '{}\n{}\n\n'.format(title, link)
+            if counter == 10:
+                break
+
+    return ptt_hot
+
+#Youtube crawler
+def youtube_hot():
+    target_url = 'https://www.youtube.com.tw/feed/trending'
+    #print('Start parsing youtube...')
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text,'html.parser')
+    youtube_hot = ""
+    counter = 0
+
+    for data in soup.select('h3'):
+        match = re.search(r'.*href="(.*?)" title="(.*?)"',str(data))
+        if match:
+            counter += 1
+            title = match.group(2)
+            link = "https://www.youtube.com" + match.group(1)
+            youtube_hot += '{}\n{}\n\n'.format(title, link)
+            if counter == 10:
+                break
+
+    youtube_hot = youtube_hot[:len(youtube_hot)-1]
+    return youtube_hot
+
+#Dcard crawler
+def dcard_hot():
+    target_url = 'https://www.dcard.tw/f'
+    #print('Start parsing dcard...')
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text,'html.parser')
+    dcard_hot = ""
+    counter = 0
+
+    for data in soup.select('a'):
+        match = re.search(r'.*href="(/f/.*?/p/\d{9})-(.*?)"',str(data))
+        if match:
+            counter += 1
+            title = match.group(2)
+            link = "https://www.dcard.tw/" + match.group(1)
+            dcard_hot += '{}\n{}\n\n'.format(title, link)
+            if counter == 10: # number of article
+                break
+
+    dcard_hot = dcard_hot[:len(dcard_hot)-1]
+    return dcard_hot
 
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    print(event.source.user_id)
+    #print(event.source.user_id)
 
-    if event.message.text == "熱門文章":
+    if event.message.text == "PTT熱門文章":
         content = ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
+    if event.message.text == "Youtube熱門影片":
+        content = youtube_hot()
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        return 0
+
+    if event.message.text == "Dcard熱門文章":
+        content = dcard_hot()
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        return 0
+
+    '''
     if event.message.text == "Debug":
         message = TextSendMessage(text="Debug: " + event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
         message2 = TextSendMessage(text="Debug2: " + event.message.text)
         line_bot_api.push_message(event.source.user_id, message2)
         return 0
-
+    '''
 
     if event.message.text == "了解資超":
         buttons_template = TemplateSendMessage(
@@ -109,9 +172,16 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='PTT熱門文章',
-                        text='熱門文章'
+                        text='PTT熱門文章'
+                    ),
+                    MessageTemplateAction(
+                        label='Dcard熱門文章',
+                        text='Dcard熱門文章'
+                    ),
+                    MessageTemplateAction(
+                        label='Youtube熱門影片',
+                        text='Youtube熱門影片'
                     )
-
                 ]
             )
         )
