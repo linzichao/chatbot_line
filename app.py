@@ -189,7 +189,7 @@ def handle_message(event):
         return 0
 
     if event.message.text == "所有功能":
-        buttons_template = TemplateSendMessage(
+        carousel_template = TemplateSendMessage(
             alt_text='所有功能 目錄',
             template=CarouselTemplate(
                 columns=[
@@ -233,6 +233,8 @@ def handle_message(event):
                 ]
             )
         )
+        line_bot_api.reply_message(event.reply_token, carousel_template)
+        return 0
 
 
 if __name__ == "__main__":
