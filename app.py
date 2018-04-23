@@ -113,17 +113,6 @@ def handle_message(event):
                                 text='Youtube熱門影片'
                             )
                         ]
-                    ),
-                    CarouselColumn(
-                        title='資超的專案',
-                        text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
-                        actions=[
-                            MessageTemplateAction(
-                                label='Youtube熱門影片',
-                                text='Youtube熱門影片'
-                            )                            
-                        ]
                     )
                 ]
             )
