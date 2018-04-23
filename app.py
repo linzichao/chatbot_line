@@ -120,15 +120,11 @@ def handle_message(event):
                         thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
                             URITemplateAction(
-                                label='Cigarette Smokers Problem',
+                                label='CigaretteSmokersProblem',
                                 uri='https://github.com/linzichao/OS_smoker'
                             ),
                             URITemplateAction(
-                                label='Dcard熱門文章',
-                                uri='Dcard熱門文章'
-                            ),
-                            URITemplateAction(
-                                label='Wake Up At Dawn',
+                                label='WakeUpAtDawn',
                                 uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
