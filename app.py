@@ -37,8 +37,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    #print(event.source.user_id)
-
     if event.message.text == "PTT熱門文章":
         content = crawler.ptt_hot()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
@@ -64,6 +62,8 @@ def handle_message(event):
         return 0
     '''
 
+    #personal infomation menu
+    #response messages set in the LINE@ MANAGER
     if event.message.text == "了解資超":
         buttons_template = TemplateSendMessage(
             alt_text='個人資料 目錄',
@@ -90,6 +90,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
 
+    #all features in carouseltemplate
+    #response messages set in the LINE@ MANAGER
     if event.message.text == "所有功能":
         carousel_template = TemplateSendMessage(
             alt_text='所有功能 目錄',
@@ -119,17 +121,17 @@ def handle_message(event):
                         text='請選擇',
                         thumbnail_image_url='https://i.imgur.com/LKyWVLb.jpg',
                         actions=[
-                            MessageTemplateAction(
+                            URITemplateAction(
                                 label='Cigarette',
-                                text='Cigarette'
+                                text='https://github.com/linzichao/OS_smoker'
                             ),
-                            MessageTemplateAction(
+                            URITemplateAction(
                                 label='智慧型衛生紙',
-                                text='智慧型衛生紙'
+                                text='https://goo.gl/co1CdZ'
                             ),
-                            MessageTemplateAction(
+                            URITemplateAction(
                                 label='Wake Up At Dawn',
-                                text='Wake Up At Dawn'
+                                text='https://linzichao.github.io/3D_final/'
                             )
                         ]
                     ),
