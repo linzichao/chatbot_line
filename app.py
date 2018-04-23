@@ -117,7 +117,7 @@ def handle_message(event):
                     CarouselColumn(
                         title='額外功能',
                         text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/lgPvzHB.png',
+                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
                             MessageTemplateAction(
                                 label='PTT熱門文章',
