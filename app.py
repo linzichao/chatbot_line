@@ -122,14 +122,6 @@ def handle_message(event):
                             URITemplateAction(
                                 label='Cigarette Smokers Problem',
                                 uri='https://github.com/linzichao/OS_smoker'
-                            ),
-                            URITemplateAction(
-                                label='智慧型衛生紙',
-                                uri='https://goo.gl/co1CdZ'
-                            ),
-                            URITemplateAction(
-                                label='Wake Up At Dawn',
-                                uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
                     )
