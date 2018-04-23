@@ -96,25 +96,6 @@ def handle_message(event):
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        title='了解作者(林資超)',
-                        text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
-                        actions=[
-                            MessageTemplateAction(
-                                label='個性',
-                                text='個性'
-                            ),
-                            MessageTemplateAction(
-                                label='專業技能',
-                                text='專業技能'
-                            ),
-                            MessageTemplateAction(
-                                label='系上活動參與',
-                                text='系上活動參與'
-                            )
-                        ]
-                    ),
-                    CarouselColumn(
                         title='額外功能',
                         text='請選擇',
                         thumbnail_image_url='https://i.imgur.com/lgPvzHB.png',
@@ -130,6 +111,25 @@ def handle_message(event):
                             MessageTemplateAction(
                                 label='Youtube熱門影片',
                                 text='Youtube熱門影片'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        title='資超的專案',
+                        text='請選擇',
+                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
+                        actions=[
+                            URITemplateAction(
+                                label='Cigarette Smokers Problem',
+                                uri='https://github.com/linzichao/OS_smoker'
+                            ),
+                            URITemplateAction(
+                                label='智慧型衛生紙',
+                                uri='https://goo.gl/co1CdZ'
+                            ),
+                            URITemplateAction(
+                                label='Wake Up At Dawn',
+                                uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
                     )
