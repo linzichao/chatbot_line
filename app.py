@@ -119,7 +119,10 @@ def handle_message(event):
                         text='請選擇',
                         thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
-
+                            MessageTemplateAction(
+                                label='Youtube熱門影片',
+                                text='Youtube熱門影片'
+                            )                            
                         ]
                     )
                 ]
