@@ -113,21 +113,6 @@ def handle_message(event):
                                 text='Youtube熱門影片'
                             )
                         ]
-                    ),
-                    CarouselColumn(
-                        title='額外功能',
-                        text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
-                        actions=[
-                            URITemplateAction(
-                                label='CigaretteSmokersProblem',
-                                uri='https://github.com/linzichao/OS_smoker'
-                            ),
-                            URITemplateAction(
-                                label='WakeUpAtDawn',
-                                uri='https://linzichao.github.io/3D_final/'
-                            )
-                        ]
                     )
                 ]
             )
@@ -135,6 +120,27 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, carousel_template)
         return 0
 
+    if event.message.text == "test":
+            template = TemplateSendMessage(
+                alt_text='所有功能 目錄',
+                template=ButtonsTemplate(
+                    title='額外功能',
+                    text='請選擇',
+                    thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
+                    actions=[
+                        URITemplateAction(
+                            label='CigaretteSmokersProblem',
+                            uri='https://github.com/linzichao/OS_smoker'
+                        ),
+                        URITemplateAction(
+                            label='WakeUpAtDawn',
+                            uri='https://linzichao.github.io/3D_final/'
+                        )
+                    ]
+                )
+            )
+            line_bot_api.reply_message(event.reply_token, template)
+            return 0
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
