@@ -113,34 +113,31 @@ def handle_message(event):
                                 text='Youtube熱門影片'
                             )
                         ]
+                    ),
+                    CarouselColumn(
+                        title='資超的專案',
+                        text='請選擇',
+                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
+                        actions=[
+                            MessageTemplateAction(
+                                label='Cigarette Smokers Problem',
+                                text='Cigarette Smokers Problem'
+                            ),
+                            MessageTemplateAction(
+                                label='智慧型衛生紙',
+                                text='智慧型衛生紙'
+                            ),
+                            MessageTemplateAction(
+                                label='Wake Up At Dawn',
+                                text='Wake Up At Dawn'
+                            )
+                        ]
                     )
                 ]
             )
         )
         line_bot_api.reply_message(event.reply_token, carousel_template)
         return 0
-
-    if event.message.text == "test":
-            template = TemplateSendMessage(
-                alt_text='所有功能 目錄',
-                template=ButtonsTemplate(
-                    title='額外功能',
-                    text='請選擇',
-                    thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
-                    actions=[
-                        URITemplateAction(
-                            label='CigaretteSmokersProblem',
-                            uri='https://github.com/linzichao/OS_smoker'
-                        ),
-                        URITemplateAction(
-                            label='WakeUpAtDawn',
-                            uri='https://linzichao.github.io/3D_final/'
-                        )
-                    ]
-                )
-            )
-            line_bot_api.push_message(event.source.user_id, template)
-            return 0
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
