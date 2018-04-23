@@ -16,14 +16,14 @@ How to Use
 -----
 When you add ZI-CHAO's Chatbot as a friend, the Chatbot will send you a greeting message. Furthermore, you will see a button menu below.
 
-<img src="https://i.imgur.com/riwJ8oJ.jpg" width="300" height="500"/>
+<img src="" width="300" height="500"/>
 
 
 If you click the button "了解資超", Chatbot will send you personal infomation menu about ZI-CHAO.
 
 
-If you click the button "更多功能", Chatbot will send you the menu of extra features.
-<img src="https://i.imgur.com/HNGtHHX.jpg" width="300" height="450"/>
+If you click the button "更多功能", Chatbot will send you the menu of all extra features.
+<img src="" width="300" height="450"/>
 
 How to Build your own Chatbot
 -----------------------------
