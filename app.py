@@ -115,21 +115,21 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        title='資超的專案',
+                        title='了解作者(林資超)',
                         text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
+                        thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
                         actions=[
                             MessageTemplateAction(
-                                label='Cigarette Smokers Problem',
-                                text='Cigarette Smokers Problem'
+                                label='個性',
+                                text='個性'
                             ),
                             MessageTemplateAction(
-                                label='智慧型衛生紙',
-                                text='智慧型衛生紙'
+                                label='專業技能',
+                                text='專業技能'
                             ),
                             MessageTemplateAction(
-                                label='Wake Up At Dawn',
-                                text='Wake Up At Dawn'
+                                label='系上活動參與',
+                                text='系上活動參與'
                             )
                         ]
                     )
