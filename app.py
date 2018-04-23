@@ -123,15 +123,15 @@ def handle_message(event):
                         actions=[
                             URITemplateAction(
                                 label='Cigarette',
-                                text='https://github.com/linzichao/OS_smoker'
+                                uri='https://github.com/linzichao/OS_smoker'
                             ),
                             URITemplateAction(
                                 label='智慧型衛生紙',
-                                text='https://goo.gl/co1CdZ'
+                                uri='https://goo.gl/co1CdZ'
                             ),
                             URITemplateAction(
                                 label='Wake Up At Dawn',
-                                text='https://linzichao.github.io/3D_final/'
+                                uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
                     ),
