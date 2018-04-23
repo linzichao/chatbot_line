@@ -119,10 +119,7 @@ def handle_message(event):
                         text='請選擇',
                         thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
-                            URITemplateAction(
-                                label='Cigarette Smokers Problem',
-                                uri='https://github.com/linzichao/OS_smoker'
-                            )
+
                         ]
                     )
                 ]
