@@ -127,9 +127,9 @@ def handle_message(event):
                                 label='Dcard熱門文章',
                                 text='Dcard熱門文章'
                             ),
-                            MessageTemplateAction(
-                                label='Youtube熱門影片',
-                                text='Youtube熱門影片'
+                            URITemplateAction(
+                                label='Go to line.me',
+                                uri='https://line.me'
                             )
                         ]
                     )
