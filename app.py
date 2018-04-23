@@ -132,7 +132,8 @@ def handle_message(event):
                                 uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
-                    ),
+                    )
+                    '''
                     CarouselColumn(
                         title='額外功能',
                         text='請選擇',
@@ -152,10 +153,11 @@ def handle_message(event):
                             )
                         ]
                     )
+                    '''
                 ]
             )
         )
-        line_bot_api.push_message(event.source.user_id, carousel_template)
+        line_bot_api.reply_message(event.reply_token, carousel_template)
         return 0
 
 
