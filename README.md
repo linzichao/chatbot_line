@@ -19,13 +19,16 @@ When you add ZI-CHAO's Chatbot as a friend, the Chatbot will send you a greeting
 <img src="https://i.imgur.com/riwJ8oJ.jpg" width="300" height="500"/>
 
 
-If you click the button "了解資超", Chatbot will send you a personal infomation menu about ZI-CHAO.
+If you click the button "了解資超", Chatbot will send you personal infomation menu about ZI-CHAO.
 
-<img src="https://i.imgur.com/8UrgP3M.jpg" width="300" height="450"/>
 
+If you click the button "更多功能", Chatbot will send you the menu of extra features.
+<img src="https://i.imgur.com/HNGtHHX.jpg" width="300" height="450"/>
 
 How to Build your own Chatbot
 -----------------------------
+
+### Preparation
 
 ### Configuration
 
@@ -38,7 +41,10 @@ You have to set Config Variables "ACCESS_TOKEN" and "SECRET" in Heroku.
   handler = WebhookHandler(os.environ.get('SECRET'))
 ```
 
-### Setting your message
+### Setting your own message
+
+You can set your Chatbot's keyword response in LINE@ MANAGER.
+<img src="https://i.imgur.com/mmV8XnZ.jpg" width="600" />
 
 Reference
 ---------

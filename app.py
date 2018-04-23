@@ -55,7 +55,7 @@ def ptt_hot():
             title = data.text
             link = "http://disp.cc/b/" + match.group(1)
             ptt_hot += '{}\n{}\n\n'.format(title, link)
-            if counter == 10:
+            if counter == 5:
                 break
 
     return ptt_hot
@@ -77,7 +77,7 @@ def youtube_hot():
             title = match.group(2)
             link = "https://www.youtube.com" + match.group(1)
             youtube_hot += '{}\n{}\n\n'.format(title, link)
-            if counter == 10:
+            if counter == 5:
                 break
 
     youtube_hot = youtube_hot[:len(youtube_hot)-1]
@@ -100,7 +100,7 @@ def dcard_hot():
             title = match.group(2)
             link = "https://www.dcard.tw/" + match.group(1)
             dcard_hot += '{}\n{}\n\n'.format(title, link)
-            if counter == 10: # number of article
+            if counter == 5: # number of article
                 break
 
     dcard_hot = dcard_hot[:len(dcard_hot)-1]
@@ -149,8 +149,8 @@ def handle_message(event):
                         text='個性'
                     ),
                     MessageTemplateAction(
-                        label='專長',
-                        text='專長'
+                        label='專業技能',
+                        text='專業技能'
                     ),
                     MessageTemplateAction(
                         label='系上活動參與',
@@ -187,6 +187,52 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
+
+    if event.message.text == "所有功能":
+        buttons_template = TemplateSendMessage(
+            alt_text='所有功能 目錄',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
+                        title='了解作者(林資超)',
+                        text='請選擇',
+                        actions=[
+                            MessageTemplateAction(
+                                label='個性',
+                                text='個性'
+                            ),
+                            MessageTemplateAction(
+                                label='專業技能',
+                                text='專業技能'
+                            ),
+                            MessageTemplateAction(
+                                label='系上活動參與',
+                                text='系上活動參與'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        title='額外功能',
+                        text='請選擇',
+                        thumbnail_image_url='https://i.imgur.com/lgPvzHB.png',
+                        actions=[
+                            MessageTemplateAction(
+                                label='PTT熱門文章',
+                                text='PTT熱門文章'
+                            ),
+                            MessageTemplateAction(
+                                label='Dcard熱門文章',
+                                text='Dcard熱門文章'
+                            ),
+                            MessageTemplateAction(
+                                label='Youtube熱門影片',
+                                text='Youtube熱門影片'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
 
 
 if __name__ == "__main__":
