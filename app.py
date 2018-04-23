@@ -95,9 +95,10 @@ def handle_message(event):
             alt_text='所有功能 目錄',
             template=CarouselTemplate(
                 columns=[
-                    CarouselColumn(thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
+                    CarouselColumn(
                         title='了解作者(林資超)',
                         text='請選擇',
+                        thumbnail_image_url='https://i.imgur.com/2UaRtwH.jpg',
                         actions=[
                             MessageTemplateAction(
                                 label='個性',
@@ -113,9 +114,10 @@ def handle_message(event):
                             )
                         ]
                     ),
-                    CarouselColumn(thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
+                    CarouselColumn(
                         title='資超的專案',
                         text='請選擇',
+                        thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
                             URITemplateAction(
                                 label='Cigarette Smokers Problem',
@@ -130,7 +132,6 @@ def handle_message(event):
                                 uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
-
                     ),
                     CarouselColumn(
                         title='額外功能',
@@ -154,7 +155,7 @@ def handle_message(event):
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, carousel_template)
+        line_bot_api.push_message(event.source.user_id, carousel_template)
         return 0
 
 
