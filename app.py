@@ -120,8 +120,8 @@ def handle_message(event):
                         thumbnail_image_url='https://i.imgur.com/LKyWVLb.jpg',
                         actions=[
                             MessageTemplateAction(
-                                label='Cigarette Smokers Problem',
-                                text='Cigarette Smokers Problem'
+                                label='Cigarette',
+                                text='Cigarette'
                             ),
                             MessageTemplateAction(
                                 label='智慧型衛生紙',
