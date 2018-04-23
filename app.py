@@ -133,28 +133,7 @@ def handle_message(event):
                             )
                         ]
                     )
-                    '''
-                    CarouselColumn(
-                        title='額外功能',
-                        text='請選擇',
-                        thumbnail_image_url='https://i.imgur.com/lgPvzHB.png',
-                        actions=[
-                            MessageTemplateAction(
-                                label='PTT熱門文章',
-                                text='PTT熱門文章'
-                            ),
-                            MessageTemplateAction(
-                                label='Dcard熱門文章',
-                                text='Dcard熱門文章'
-                            ),
-                            MessageTemplateAction(
-                                label='Youtube熱門影片',
-                                text='Youtube熱門影片'
-                            )
-                        ]
-                    )
-                    '''
-                ]
+
             )
         )
         line_bot_api.reply_message(event.reply_token, carousel_template)
