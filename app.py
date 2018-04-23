@@ -119,17 +119,17 @@ def handle_message(event):
                         text='請選擇',
                         thumbnail_image_url='https://i.imgur.com/EuRHQUt.jpg',
                         actions=[
-                            MessageTemplateAction(
-                                label='PTT熱門文章',
-                                text='PTT熱門文章'
-                            ),
-                            MessageTemplateAction(
-                                label='Dcard熱門文章',
-                                text='Dcard熱門文章'
+                            URITemplateAction(
+                                label='Cigarette Smokers Problem',
+                                uri='https://github.com/linzichao/OS_smoker'
                             ),
                             URITemplateAction(
-                                label='Go to line.me',
-                                uri='https://line.me'
+                                label='Dcard熱門文章',
+                                uri='Dcard熱門文章'
+                            ),
+                            URITemplateAction(
+                                label='Wake Up At Dawn',
+                                uri='https://linzichao.github.io/3D_final/'
                             )
                         ]
                     )
