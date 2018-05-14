@@ -15,9 +15,6 @@ Cloud Platform
 How to Use
 -----
 
-You can add ZI-CHAO's Chatbot as a friend by LINE@ QRCode.
-
-<img src="https://i.imgur.com/67dM9oL.jpg" width="250" height="250"/>
 
 When you add ZI-CHAO's Chatbot as a friend, the Chatbot will send you a greeting message. Furthermore, you will see a button menu below.
 
