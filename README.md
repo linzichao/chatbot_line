@@ -1,6 +1,5 @@
 LIN,ZI-CHAO's(林資超) Chatbot
 =====================
-for Line's interview
 
 
 Runtime Environment
